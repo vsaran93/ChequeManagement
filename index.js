@@ -4,6 +4,9 @@ const port = 3005;
 
 const dbConnection = require('./connection/dbConnection');
 
+//controllers
+const chequeDetailEndpoint = require('./controllers/chequeDetail');
+
 
 const bodyParser = require('body-parser');
 // parse application/x-www-form-urlencoded
@@ -23,6 +26,9 @@ catch (err) {
 app.get('/', (req, res) => {
     res.send('welcome to express world');
 });
+
+
+app.post('/addChequeDetail', chequeDetailEndpoint.addCheckDetail);
 
 app.listen(port, () => {
     console.log('app is running on ', port)
